@@ -17,7 +17,7 @@ function reservarHabitacion(){
 
   if(habitaciones[num] === 0) {
     habitaciones = 1
-    alert("Habitación" + num + "reservada con exito.")
+    alert("Habitación " + num + " reservada con exito.")
   } else {
     alert("Esta habitación ya se encuentra ocupada.")
   }
@@ -45,9 +45,32 @@ function iniciarSistema() {
   let opcion
 
   do{
-    opcion = prompt("Sistema de reservas de Hotel Doris \n 1. Ver estado de habitaciones \n 2. Resevar una habitación \n 3.Liberar una habitación \n 4. Salir \n Ingrese una opción:")
-  }while(opcion !==4)
-}
+    opcion = Number(prompt("Sistema de reservas de Hotel Doris \n 1. Ver estado de habitaciones \n 2. Resevar una habitación \n 3.Liberar una habitación \n 4. Salir \n Ingrese una opción:"))
+    
+    if(opcion <1 || opcion >4) {
+      alert("Opción incorrecta, elija una válida")
+    continue
+    }
+    switch(opcion){
+      case 1: 
+      mostrarHabitaciones();
+      break;
 
+      case 2: 
+      reservarHabitacion();
+      break;
+
+      case 3:
+      liberarHabitacion();
+      break;
+
+      case 4:
+        alert("Saliendo del sistema...");
+        window.location.href = "index.html"
+      break;
+    }
+  } while(opcion !== 4)
+}
+iniciarSistema()
 
 
