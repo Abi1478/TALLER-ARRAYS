@@ -16,7 +16,7 @@ function reservarHabitacion(){
   let num = parseInt(prompt(`Habitaciones libres: ${libres.join(", ")}\n Ingrese el número de habitación que desea reservar:`))
 
   if(habitaciones[num] === 0) {
-    habitaciones = 1
+    habitaciones[num] = 1
     alert("Habitación " + num + " reservada con exito.")
   } else {
     alert("Esta habitación ya se encuentra ocupada.")
@@ -34,7 +34,7 @@ function liberarHabitacion(){
   let num = parseInt(prompt(`Habitaciones ocupadas: ${ocupadas.join(", ")} \n Ingrese el número de habitación que desea liberar:`))
 
   if(habitaciones[num] === 1) {
-    habitaciones = 0
+    habitaciones[num] = 0
     alert("Habitación" + num + "liberada con exito.")
   } else {
     alert("Esta habitacion ya se encuentra libre")
